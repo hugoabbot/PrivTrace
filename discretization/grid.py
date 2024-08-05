@@ -372,7 +372,6 @@ class Grid:
 
     # this function gives noisy frequency
     def noisy_frequency(self, epsilon_for_level1_density) -> None:
-        cc1 = self.cc
         real_density = self.get_level1_real_density()
         noise1 = Noise()
         sensitivity = 1
@@ -930,26 +929,25 @@ class Grid:
                 in_border_states.append(state_index)
         return in_border_states
 
-    def get_grid(self, trajectory_set1: TrajectorySet) -> None:
-        cc1 = self.cc
-        total_epsilon = cc1.total_epsilon
-        level1_epsilon_partition = cc1.epsilon_partition[0]
+    def get_grid(self, trajectory_set: TrajectorySet) -> None:
+        total_epsilon = self.cc.total_epsilon
+        level1_epsilon_partition = self.cc.epsilon_partition[0]
         level1_epsilon = total_epsilon * level1_epsilon_partition
-        self.border(trajectory_set1)
-        self.give_point_number(trajectory_set1)
+        self.border(trajectory_set)
+        self.give_point_number(trajectory_set)
         self.level1_divide()
         self.level1_cells()
-        self.level1_trajectory_set_point_to_cell(trajectory_set1)
-        self.level1_density(trajectory_set1)
+        self.level1_trajectory_set_point_to_cell(trajectory_set)
+        self.level1_density(trajectory_set)
         self.noisy_frequency(level1_epsilon)
         self.subdividing()
 
-        self.calculate_index_array_for_set(trajectory_set1)
+        self.calculate_index_array_for_set(trajectory_set)
 
-    def set_up_state(self, trajectory_set1: TrajectorySet) -> None:
-        self.get_non_noisy_level2_density(trajectory_set1)
+    def set_up_state(self, trajectory_set: TrajectorySet) -> None:
+        self.get_non_noisy_level2_density(trajectory_set)
         # self.get_noisy_level2_density()
         self.state_pruning()
-        self.usable_array_of_set(trajectory_set1)
+        self.usable_array_of_set(trajectory_set)
         self.construct_real_index_neighbors()
         self.construct_usable_index_neighbors()

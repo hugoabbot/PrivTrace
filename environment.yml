@@ -12,5 +12,5 @@ dependencies:
   - torchvision
   - torchaudio
   - cpuonly
-  - eco
-  - cvxpy
+  - conda-forge::ecos
+  - conda-forge::cvxpy

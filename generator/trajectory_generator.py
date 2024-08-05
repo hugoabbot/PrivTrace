@@ -372,13 +372,13 @@ class Generator:
                     trajectory_number_already = trajectory_number_already + 1
         else:
             i = 1
-            print('begin generating')
+            print('Generating trajectories')
             print(datetime.datetime.now())
             while i < number + 1:
                 trajectory = self.generate_trajectory()
                 if trajectory is not False:
                     trajectory_list.append(trajectory)
                     i = i + 1
-            print('end generating')
+            print('Finished generation')
             print(datetime.datetime.now())
         return trajectory_list

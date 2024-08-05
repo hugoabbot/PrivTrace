@@ -8,15 +8,14 @@ class StateGeneration:
     def __init__(self, cc: ParameterCarrier):
         self.cc = cc
 
-    def generate_tra(self, mar_mo):
-        cc1 = self.cc
+    def generate_trajectories(self, markov_model):
         generator1 = Generator(self.cc)
-        generator1.load_generator(mar_mo)
-        number = cc1.trajectory_number_to_generate
-        usable_tr_list = generator1.generate_many(number, neighbor_check=False)
-        print('state trajectories got')
-        real_tr_list = self.trans_many_usable_trajectories(usable_tr_list, mar_mo.grid)
-        return real_tr_list
+        generator1.load_generator(markov_model)
+        number = self.cc.trajectory_number_to_generate
+        usable_trajectory_list = generator1.generate_many(number, neighbor_check=False)
+        print('State generation complete')
+        real_trajectory_list = self.trans_many_usable_trajectories(usable_trajectory_list, markov_model.grid)
+        return real_trajectory_list
 
     # this function transfers a usable state trajectory to real state trajectory
     def trans_to_real_state_trajectory(self, usable_to_real_dict: np.ndarray, usable_state_trajectory: np.ndarray):

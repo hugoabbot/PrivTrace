@@ -14,7 +14,6 @@ class DataReader:
         trajectory_list = self.read_tra_data(file_name)
         return trajectory_list
 
-    #
     def read_tra_data(self, file_name):
         trajectory_list = []
         f = open(file_name, 'r+')

@@ -91,7 +91,3 @@ class Trajectory:
         except IndexError:
             raise IndexError('trajectory {} has wrong subcell index'.format(self.get_index()))
         return whole_cell_frequency
-
-
-
-

@@ -1,5 +1,14 @@
 # PrivTrace
 
+## Updated README.md
+
+`TODO`
+
+conda env create -f test.yml
+pip install cvxpy
+
+## Original README.md
+
 This is the project code for PrivTrace: Differentially Private Trajectory Synthesis by Adaptive Markov Model
 
 Instructions:

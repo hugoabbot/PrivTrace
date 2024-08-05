@@ -80,14 +80,14 @@ class MarkovModel:
         state_number1 = self.all_state_number
         markov_matrix = np.zeros((state_number1, state_number1))
         trajectory_list = trajectory_set.trajectory_list
-        print('begin calculating matrix')
+        print('Calculating Markov transformation probability')
         print(datetime.datetime.now())
         for trajectory1 in trajectory_list:
             not_out_of_usable = not trajectory1.has_not_usable_index
             if not_out_of_usable:
                 markov_matrix1 = self.trajectory_markov_probability(trajectory1)
                 markov_matrix += markov_matrix1
-        print('calculating ends')
+        print('Adding noise to Markov model')
         print(datetime.datetime.now())
         self.real_markov_matrix = markov_matrix
 
@@ -345,4 +345,3 @@ class MarkovModel:
         self.add_noise_to_guidepost()
         self.order1_and_2_end_consistency()
         pass
-

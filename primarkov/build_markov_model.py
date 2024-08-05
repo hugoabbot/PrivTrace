@@ -9,11 +9,11 @@ class ModelBuilder:
     def __init__(self, cc: ParameterCarrier):
         self.cc = cc
 
-    def build_model(self, grid: Grid, trajectory_set1: TrajectorySet):
-        mo1 = MarkovModel(self.cc)
-        mo1.model_building(trajectory_set1, grid)
-        return mo1
+    def build_model(self, grid: Grid, trajectory_set: TrajectorySet):
+        model = MarkovModel(self.cc)
+        model.model_building(trajectory_set, grid)
+        return model
 
-    def filter_model(self, trajectory_set1, grid, mo1):
-        mo1.model_filtering(trajectory_set1, grid)
-        return mo1
+    def filter_model(self, trajectory_set, grid, model):
+        model.model_filtering(trajectory_set, grid)
+        return model

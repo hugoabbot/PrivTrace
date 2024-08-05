@@ -3,7 +3,7 @@ import argparse
 import config.folder_and_file_names as fname
 
 
-class ParSetter:
+class ParameterSetter:
 
     def __init__(self):
         pass
